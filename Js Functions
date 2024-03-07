@@ -1,0 +1,53 @@
+1 // Function Statement or Function Declaration: Just a the normal way where function is initialized.
+Function a(){
+// some code
+}
+
+2 // Function Expression: It is a function where it acts like a value.
+Var x=function(){
+//some code;
+}
+3 //Anonymous Function: anonymous function is a function without any name but it cannot be used with function statement, but it can be used with function expression.
+Var x=function(){
+//some code;
+}
+
+4 //Named Function Expression: it is a function expression where the function has name also, so in function expression either named function or anonymous function can be used.
+Var x=function y(){
+//some code;
+}
+//Corner Case
+Var x=function y(){
+//some code;
+}
+Suppose I call y() directly then it will give a ref error because this y function is not created in the outer scope.
+//Parameter vs Argument
+Parameter are the values that are passed while initializing a function.
+Argument are the values that are passed while calling the function.
+
+5 // First Class Functions
+It is the ability of a function that can be :
+1.	Passed as arguments to other functions.
+Function x(){
+}
+Function y(){
+}
+X(y);
+2.	Returned as values from other functions.
+Function x(){
+Return function (){
+}}
+3.	Assigned to variables.
+4.	Stored in data structures.
+
+First class functions are the first class citizens.
+
+6 // Callback Functions
+callback function, often referred to simply as a "callback," is a function that is passed as an argument to another function and is invoked after some asynchronous operation has been completed, or at a specific time or condition.
+// Blocking the main thread
+Since js has only one thread, if an expensive operation that may take about 10-15 seconds of operation time then It will block all other operations of the program. So, always avoid this.
+
+
+
+
+
