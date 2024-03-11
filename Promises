@@ -1,0 +1,15 @@
+a callback function is attached to the promise object.
+i.e. 
+promise.then();
+
+By design, fetch function returns a promise.
+
+The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+'
+promises are also immutable.
+
+proimise chain
+
+createOrder()
+.then(()=>{})
+.then(()=>{})
