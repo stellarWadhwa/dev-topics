@@ -15,7 +15,6 @@ createOrder()
 .then(()=>{})
 
 
-
 Promise API's
 
 //Used for parallel api calls and multiple promises.
@@ -39,3 +38,17 @@ In case of all promises success it will execute in same manner as that of promis
 When all are settled, irrespective of success or failure, it will still wait for all of the promises to settle and then return an error of result where the succesfull promise will have the result and rejected one will have the error.
 
 
+//Promise.race
+//success case
+As soon as one of the promise is settled in this case resolved, it will return its value as a result. Not an array! but a value as a result.
+
+//fail case
+As Soon as one of the promise gets settled in this case rejected, it will throw an error as result, not an array of all promises but a value.
+
+//promise.any
+//success
+in promise.any whichever promise gets resolved first will be returned as result
+//failure
+suppose a promise is rejected, it will not return the result but will wait for a value to be resolved. only a resolved promise will be returned
+// all promise fails
+returned result will an aggregated error, it will be an array of all the err
