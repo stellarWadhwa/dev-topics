@@ -13,3 +13,29 @@ proimise chain
 createOrder()
 .then(()=>{})
 .then(()=>{})
+
+
+
+Promise API's
+
+//Used for parallel api calls and multiple promises.
+it takes an array of promises.
+promise.all([p1,p2,p3]);
+after this it will make 3 parallel api calls.
+suppose; p1=1s,p2=2s,p3=3s for resolving.
+
+//all resolved
+if all the api calls are succesfully then it will return the result of all these calls after 3s in an array.
+
+//if one get rejected
+promise.all([p1,p2,p3]);
+suppose p2 fails, then promise.all will throw an err, err will be same as that of the promise that failed, it will be returned as soon as err occurs.
+
+//Promise.allSettled
+
+In case of all promises success it will execute in same manner as that of promise.all.
+
+//if one got rejected.
+When all are settled, irrespective of success or failure, it will still wait for all of the promises to settle and then return an error of result where the succesfull promise will have the result and rejected one will have the error.
+
+
