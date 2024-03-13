@@ -52,3 +52,36 @@ in promise.any whichever promise gets resolved first will be returned as result
 suppose a promise is rejected, it will not return the result but will wait for a value to be resolved. only a resolved promise will be returned
 // all promise fails
 returned result will an aggregated error, it will be an array of all the err
+
+
+
+
+
+
+
+
+Suppose there is an async function with a promise.
+Now, when an async function is in the call stack, then it initiates all promises's execution. as soon as it reached the await line, async function is taken out of the call stack to not block the main thread. when the promise is resolved then, async function comes back into the call stack and then it is resolved.
+
+//some cases
+
+1 const f1=async()=>{
+const res1=await p1; //time needed is 10sec
+const res2=await p2; //time needed is 20sec
+}
+
+when f1 is called, it will notic all of the promises in it and then as soon as it will hit the line with await, it will take the function out of the call stack. 
+When it is taken out of the call stack, both of them are being resolved, when time of the first await line i.e. 10sec is up, then it will be added back to the call stack. 
+Then p1 will be resolved, after that it will go to the next line which has await again, so it will take the function out of the call stack, time remaining now=20-10=10sec. So, as soon as p2 will be settled, it will be added to the call stack.
+
+2  const f1=async()=>{
+const res2=await p2; //time needed is 20sec
+const res1=await p1; //time needed is 10sec
+}
+
+Now, i have changed the order of the promises in the function, now using the same logic, p2 needs to be resolved first and when its time i.e. 20sec is completed function will come back to the call stack and 
+it will then go to the next line of await, and check if it is settled, but this time it is settled so it will be done also.
+
+
+In first case, first will execute after 10 seconds and second will execute after 20 seconds.
+In second case, first and second both will be executed after 20 seconds.
