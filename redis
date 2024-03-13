@@ -1,0 +1,14 @@
+Redis is
+Remote Dictionary Server
+
+Redis was built with the idea that cache can also be a durable data store. Cache is much faster than any disk file of the system, so to achieve high speed.
+
+Redis stores data in the primary memory generally, but there are options which allows the data to persist.
+
+1 RDB Snapshots: RDB snapshots take periodic snapshots of the dataset and save them to disk as binary files. These snapshots are created asynchronously in the background based on configurable criteria (e.g., time interval, number of write operations).
+
+2 Append-only-file (AOF): AOF logs every write operation (e.g., set, update, delete) to a log file in a format that can be replayed to rebuild the dataset. The log file is written in an append-only manner, ensuring that each write operation is logged sequentially and durably.
+
+REDIS can also be used as primary database.
+
+Redis basically stores data in a hash ds, hash does not support nested objects,
