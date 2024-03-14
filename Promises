@@ -34,6 +34,20 @@ pr.then((res)=>{
     console.log(err)
 })
 ************************************************************************
+.finally()
+The .finally() method in promises serves the purpose of allowing you to execute a callback function regardless of whether the promise is fulfilled or rejected. It provides a way to perform cleanup tasks or execute logic that should run regardless of the promise's outcome.
+fetchData()
+    .then((data) => {
+        console.log(data); // Logs: "Data fetched successfully"
+    })
+    .catch((error) => {
+        console.error("Error fetching data:", error);
+    })
+    .finally(() => {
+        console.log("Cleanup tasks complete"); // Logs: "Cleanup tasks complete"
+    });
+.finally is not a part of the promise itself but it is a method that can be called on the promise object.
+
 
 Promise API's
 
