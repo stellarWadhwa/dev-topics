@@ -133,3 +133,9 @@ const f1=async()=>{
 f1();
 
 **********************************************************************************************************
+**********************************************************************************************************
+const f1=async()=>{
+const x=    await p1.then(()=> p2);
+console.log(x);
+}
+//in this it will log the value of p2 only because value of p1 is overwritten, if i want different values then i should await them seperately.
