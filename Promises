@@ -13,7 +13,27 @@ proimise chain
 createOrder()
 .then(()=>{})
 .then(()=>{})
+*****************************************************************************************
+//In the code below i have created a promise and handled the resolve and reject for it.
 
+const pr=new Promise((resolve,reject)=>{
+
+    setTimeout(()=>{
+            const x=Math.floor(Math.random() * 10)
+        if(x>5){
+            resolve(x);
+        }
+        else reject(new Error("Number is Small"));
+    },1000)
+})
+
+pr.then((res)=>{
+    console.log("Number is valid, your number is:"+ res)
+})
+.catch((err)=>{
+    console.log(err)
+})
+************************************************************************
 
 Promise API's
 
@@ -85,3 +105,31 @@ it will then go to the next line of await, and check if it is settled, but this 
 
 In first case, first will execute after 10 seconds and second will execute after 20 seconds.
 In second case, first and second both will be executed after 20 seconds.
+
+*******************************************************************************************************
+//below is the code for above theory about async/await
+
+const p1=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("p1 is here");
+    },5000)
+})
+
+const p2=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("p2 is here");
+    },10000)
+})
+const f1=async()=>{
+   ;
+    await p1;
+    console.log("p1")
+    console.log(p1);
+    
+     await p2;
+    console.log("p2")
+    console.log(p2)
+}
+f1();
+
+**********************************************************************************************************
