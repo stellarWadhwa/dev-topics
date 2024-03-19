@@ -153,3 +153,25 @@ const x=    await p1.then(()=> p2);
 console.log(x);
 }
 //in this it will log the value of p2 only because value of p1 is overwritten, if i want different values then i should await them seperately.
+
+
+****************************************************************************************************************
+
+const promise = new Promise((res, rej) => {
+    setTimeout(() => {
+        res("done");
+    }, 3000);
+});
+
+async function one() {
+    try{
+    const result = await promise;
+    console.log(result);
+        
+    }
+    catch(err){
+        console.error(err)
+    }
+}
+
+one();
