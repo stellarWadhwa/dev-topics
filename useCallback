@@ -1,6 +1,6 @@
 The useCallback hook is a part of React's Hooks API and is used to memoize functions in functional components. Memoization is the process of caching the result of a function call and reusing it if the function is called again with the same arguments. This can help optimize performance by preventing unnecessary re-renders in React components, especially in scenarios where functions are passed down as props or used as dependencies in other hooks.
 import React, { useState, useCallback } from 'react';
-
+ 
 const MyComponent = () => {
   const [count, setCount] = useState(0);
 
